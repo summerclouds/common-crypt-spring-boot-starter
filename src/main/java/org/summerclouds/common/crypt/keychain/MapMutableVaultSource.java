@@ -20,13 +20,13 @@ import java.util.HashMap;
 import java.util.Set;
 import java.util.UUID;
 
+import org.summerclouds.common.core.crypt.KeyEntry;
+import org.summerclouds.common.core.crypt.MutableKeychainSource;
 import org.summerclouds.common.core.error.MException;
 import org.summerclouds.common.core.log.MLog;
-import org.summerclouds.common.core.tool.MKeychain.KeyEntry;
-import org.summerclouds.common.core.tool.MKeychain.MutableVaultSource;
 import org.summerclouds.common.core.tool.MSystem;
 
-public abstract class MapMutableVaultSource extends MLog implements MutableVaultSource {
+public abstract class MapMutableVaultSource extends MLog implements MutableKeychainSource {
 
     protected HashMap<UUID, KeyEntry> entries = new HashMap<>();
     protected String name = UUID.randomUUID().toString();

@@ -15,7 +15,8 @@
  */
 package org.summerclouds.common.crypt.keychain;
 
-import de.mhus.lib.core.cfg.CfgSecure;
+import org.summerclouds.common.core.cfg.CfgSecure;
+import org.summerclouds.common.core.tool.MKeychain;
 
 public class KeychainPassphraseFromConfig implements KeychainPassphrase {
 

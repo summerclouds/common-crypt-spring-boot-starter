@@ -19,11 +19,11 @@ import java.io.File;
 import java.io.IOException;
 
 import org.summerclouds.common.core.cfg.CfgBoolean;
+import org.summerclouds.common.core.cfg.CfgFile;
+import org.summerclouds.common.core.crypt.KeychainSource;
 import org.summerclouds.common.core.log.MLog;
-import org.summerclouds.common.core.tool.MKeychain.KeychainSource;
-
-import de.mhus.lib.core.MApi;
-import de.mhus.lib.core.cfg.CfgFile;
+import org.summerclouds.common.core.tool.MKeychain;
+import org.summerclouds.common.core.tool.MSystem;
 
 public class DefaultVaultSourceFactory extends MLog implements KeychainSourceFactory {
 
@@ -31,12 +31,12 @@ public class DefaultVaultSourceFactory extends MLog implements KeychainSourceFac
             new CfgFile(
                     MKeychain.class,
                     "file",
-                    MApi.getFile(MApi.SCOPE.ETC, "de.mhus.lib.core.vault.FileVaultSource.dat"));
+                    MSystem.getFile(MSystem.SCOPE.ETC, "de.mhus.lib.core.vault.FileVaultSource.dat"));
     private static CfgFile CFG_DEFAULT_FOLDER =
             new CfgFile(
                     MKeychain.class,
                     "folder",
-                    MApi.getFile(MApi.SCOPE.DATA, "de.mhus.lib.core.vault.FolderVaultSource"));
+                    MSystem.getFile(MSystem.SCOPE.DATA, "de.mhus.lib.core.vault.FolderVaultSource"));
     private static CfgBoolean CFG_EDITABLE =
             new CfgBoolean(KeychainSourceFromPlainProperties.class, "editable", false);
 

@@ -17,7 +17,7 @@ package org.summerclouds.common.crypt.keychain;
 
 import java.util.UUID;
 
-import org.summerclouds.common.core.tool.MKeychain.KeyEntry;
+import org.summerclouds.common.core.crypt.KeyEntry;
 import org.summerclouds.common.core.tool.MSystem;
 import org.summerclouds.common.core.util.SecureString;
 

@@ -25,12 +25,12 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.util.UUID;
 
+import org.summerclouds.common.core.crypt.KeyEntry;
+import org.summerclouds.common.core.crypt.MutableKeychainSource;
 import org.summerclouds.common.core.error.MException;
-import org.summerclouds.common.core.tool.MKeychain.KeyEntry;
-import org.summerclouds.common.core.tool.MKeychain.MutableVaultSource;
 import org.summerclouds.common.core.tool.MSystem;
 import org.summerclouds.common.core.util.SecureString;
-import org.summerclouds.common.crypt.crypt.MCrypt;
+import org.summerclouds.common.crypt.MCrypt;
 
 public class KeychainSourceFromSecFile extends MapMutableVaultSource {
 
@@ -113,7 +113,7 @@ public class KeychainSourceFromSecFile extends MapMutableVaultSource {
     }
 
     @Override
-    public MutableVaultSource getEditable() {
+    public MutableKeychainSource getEditable() {
         return this;
     }
 

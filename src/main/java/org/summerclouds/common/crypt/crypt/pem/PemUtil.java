@@ -20,13 +20,14 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.UUID;
 
+import org.summerclouds.common.core.crypt.KeyEntry;
 import org.summerclouds.common.core.error.NotSupportedException;
 import org.summerclouds.common.core.parser.ParseException;
+import org.summerclouds.common.core.tool.MKeychain;
 import org.summerclouds.common.core.tool.MString;
 import org.summerclouds.common.core.tool.MValidator;
 import org.summerclouds.common.core.util.SecureString;
 import org.summerclouds.common.crypt.crypt.Blowfish;
-import org.summerclouds.common.crypt.keychain.MKeychainUtil;
 
 public class PemUtil {
 
@@ -34,8 +35,7 @@ public class PemUtil {
             throws Exception, NotSupportedException, IOException {
 
         if (MValidator.isUUID(str)) {
-            MKeychain vault = MKeychainUtil.loadDefault();
-            KeyEntry entry = vault.getEntry(UUID.fromString(str));
+            KeyEntry entry = MKeychain.getEntry(UUID.fromString(str));
             PemPriv key = PemUtil.signPrivFromString(entry.getValue().value());
             return key;
         }
@@ -56,8 +56,7 @@ public class PemUtil {
             throws NotSupportedException, IOException, ParseException {
 
         if (MValidator.isUUID(str)) {
-            MKeychain vault = MKeychainUtil.loadDefault();
-            KeyEntry entry = vault.getEntry(UUID.fromString(str));
+            KeyEntry entry = MKeychain.getEntry(UUID.fromString(str));
             PemPub key = PemUtil.signPubFromString(entry.getValue().value());
             return key;
         }
@@ -78,8 +77,7 @@ public class PemUtil {
             throws ParseException, NotSupportedException, IOException {
 
         if (MValidator.isUUID(str)) {
-            MKeychain vault = MKeychainUtil.loadDefault();
-            KeyEntry entry = vault.getEntry(UUID.fromString(str));
+            KeyEntry entry = MKeychain.getEntry(UUID.fromString(str));
             PemPriv key = PemUtil.cipherPrivFromString(entry.getValue().value());
             return key;
         }
@@ -108,8 +106,7 @@ public class PemUtil {
             throws ParseException, NotSupportedException, IOException {
 
         if (MValidator.isUUID(str)) {
-            MKeychain vault = MKeychainUtil.loadDefault();
-            KeyEntry entry = vault.getEntry(UUID.fromString(str));
+            KeyEntry entry = MKeychain.getEntry(UUID.fromString(str));
             PemPub key = PemUtil.cipherPubFromString(entry.getValue().value());
             return key;
         }

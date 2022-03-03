@@ -22,6 +22,7 @@ import java.util.LinkedList;
 
 import org.summerclouds.common.core.tool.MMath;
 import org.summerclouds.common.core.tool.MThread;
+import org.summerclouds.common.crypt.MCrypt;
 
 public class CipherDecodeAsync extends InputStream {
 

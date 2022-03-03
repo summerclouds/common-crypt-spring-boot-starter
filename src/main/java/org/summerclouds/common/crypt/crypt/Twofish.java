@@ -20,6 +20,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.bouncycastle.util.encoders.Base64;
 import org.summerclouds.common.core.tool.MString;
+import org.summerclouds.common.crypt.MBouncy;
 
 public class Twofish {
 

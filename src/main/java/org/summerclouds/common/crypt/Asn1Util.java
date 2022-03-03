@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.summerclouds.common.crypt.crypt;
+package org.summerclouds.common.crypt;
 
 import java.io.IOException;
 import java.math.BigInteger;
@@ -22,6 +22,7 @@ import java.util.Enumeration;
 
 import org.bouncycastle.asn1.ASN1Integer;
 import org.bouncycastle.asn1.ASN1Sequence;
+import org.summerclouds.common.crypt.crypt.AsyncKey;
 
 /**
  * Need to separate this method to remove the dependency to bounycastle from the MCrypt class. Do

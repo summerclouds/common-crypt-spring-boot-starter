@@ -19,13 +19,12 @@ import java.util.HashMap;
 
 import org.summerclouds.common.core.error.MException;
 import org.summerclouds.common.core.util.SecureString;
+import org.summerclouds.common.crypt.CryptException;
+import org.summerclouds.common.crypt.PemProcessContext;
 import org.summerclouds.common.crypt.crypt.pem.PemBlock;
 import org.summerclouds.common.crypt.crypt.pem.PemKey;
 import org.summerclouds.common.crypt.crypt.pem.PemPriv;
 import org.summerclouds.common.crypt.crypt.pem.PemPub;
-
-import de.mhus.crypt.api.CryptException;
-import de.mhus.crypt.api.PemProcessContext;
 
 public class SimplePemProcessContext implements PemProcessContext {
 

@@ -20,9 +20,9 @@ import java.io.IOException;
 import java.util.UUID;
 
 import org.summerclouds.common.core.M;
+import org.summerclouds.common.core.crypt.KeyEntry;
+import org.summerclouds.common.core.crypt.MutableKeychainSource;
 import org.summerclouds.common.core.tool.MJson;
-import org.summerclouds.common.core.tool.MKeychain.KeyEntry;
-import org.summerclouds.common.core.tool.MKeychain.MutableVaultSource;
 import org.summerclouds.common.core.tool.MSystem;
 import org.summerclouds.common.core.util.SecureString;
 
@@ -79,7 +79,7 @@ public class KeychainSourceFromPlainJson extends MapMutableVaultSource {
     }
 
     @Override
-    public MutableVaultSource getEditable() {
+    public MutableKeychainSource getEditable() {
         if (!editable || !fileCanWrite) return null;
         return this;
     }

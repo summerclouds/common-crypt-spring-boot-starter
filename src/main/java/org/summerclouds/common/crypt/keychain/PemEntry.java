@@ -18,6 +18,7 @@ package org.summerclouds.common.crypt.keychain;
 import java.util.UUID;
 
 import org.summerclouds.common.core.parser.ParseException;
+import org.summerclouds.common.core.tool.MKeychain;
 import org.summerclouds.common.core.util.SecureString;
 import org.summerclouds.common.crypt.crypt.pem.PemBlock;
 import org.summerclouds.common.crypt.crypt.pem.PemUtil;

@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2002 Mike Hummel (mh@mhus.de)
+ * Copyright (C) 2019 Mike Hummel (mh@mhus.de)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,13 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.summerclouds.common.crypt.keychain;
+package org.summerclouds.common.crypt;
 
-import org.summerclouds.common.core.activator.DefaultImplementation;
-import org.summerclouds.common.core.crypt.KeychainSource;
+import org.summerclouds.common.core.error.MException;
+import org.summerclouds.common.core.error.RC;
+import org.summerclouds.common.crypt.crypt.pem.PemBlock;
 
-@DefaultImplementation(DefaultVaultSourceFactory.class)
-public interface KeychainSourceFactory {
+public class CryptException extends MException {
 
-    KeychainSource create(String name, KeychainPassphrase vaultPassphrase);
+    private static final long serialVersionUID = 1L;
+
+    public CryptException(String msg, PemBlock in) {
+        super(RC.ERROR, msg, in);
+    }
 }

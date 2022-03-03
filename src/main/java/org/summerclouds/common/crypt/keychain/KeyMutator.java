@@ -16,9 +16,9 @@
 package org.summerclouds.common.crypt.keychain;
 
 import org.summerclouds.common.core.activator.DefaultImplementation;
+import org.summerclouds.common.core.crypt.KeyEntry;
 import org.summerclouds.common.core.error.NotSupportedException;
 import org.summerclouds.common.core.parser.ParseException;
-import org.summerclouds.common.core.tool.MKeychain.KeyEntry;
 
 @DefaultImplementation(DefaultVaultMutator.class)
 public interface KeyMutator {

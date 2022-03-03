@@ -25,6 +25,8 @@ import java.security.PrivateKey;
 import org.summerclouds.common.core.tool.MFile;
 import org.summerclouds.common.core.tool.MString;
 import org.summerclouds.common.core.util.SecureString;
+import org.summerclouds.common.crypt.MBouncy;
+import org.summerclouds.common.crypt.MCrypt;
 
 public class CryptedString extends SecureString implements Externalizable {
 

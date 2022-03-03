@@ -15,86 +15,13 @@
  */
 package org.summerclouds.common.crypt.keychain;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.UUID;
-
 import org.summerclouds.common.core.M;
-import org.summerclouds.common.core.console.ConsoleTable;
+import org.summerclouds.common.core.crypt.KeyEntry;
 import org.summerclouds.common.core.error.NotSupportedException;
 import org.summerclouds.common.core.parser.ParseException;
-import org.summerclouds.common.core.tool.MKeychain.KeyEntry;
-import org.summerclouds.common.core.tool.MKeychain.KeychainSource;
-import org.summerclouds.common.core.util.MArgs;
+import org.summerclouds.common.core.tool.MKeychain;
 
-public class MKeychainUtil {
-
-    public static MKeychain loadDefault() {
-        MKeychain vault = M.l(MKeychain.class);
-        checkDefault(vault);
-        return vault;
-    }
-
-    public static void checkDefault(MKeychain vault) {
-        KeychainSource def = vault.getSource(MKeychain.SOURCE_DEFAULT);
-        if (def == null) {
-
-            KeychainPassphrase vaultPassphrase = M.l(KeychainPassphrase.class);
-            KeychainSourceFactory factory = M.l(KeychainSourceFactory.class);
-
-            def = factory.create(MKeychain.SOURCE_DEFAULT, vaultPassphrase);
-            if (def != null) vault.registerSource(def);
-        }
-    }
-
-    public static void main(String[] in) throws IOException {
-        MArgs args =
-                new MArgs(
-                        in,
-                        MArgs.opt('f', "file", 1, false, "File"),
-                        MArgs.opt('p', "passphrase", 1, false, "Passphrase"));
-        if (!args.isPrintUsage()) {
-            args.printUsage();
-            System.exit(args.isValid() ? 0 : 1);
-        }
-
-        MKeychain vault = loadDefault();
-
-        KeychainSource source = null;
-        if (args.hasOption("file")) {
-            String vp = args.getOption("p").getValue("setit");
-            File f = new File(args.getOption("file").getValue());
-            source = new KeychainSourceFromSecFile(f, vp);
-            vault.registerSource(source);
-        }
-        if (source == null) source = vault.getSource(MKeychain.SOURCE_DEFAULT);
-
-        String cmd = args.getArgument(1).getValue();
-
-        switch (cmd) {
-            case "help":
-                {
-                    System.out.println("Usage: <cmd> <args>");
-                    System.out.println("list - list all keys");
-                }
-                break;
-            case "list":
-                {
-                    ConsoleTable out = new ConsoleTable();
-                    out.setHeaderValues("Source", "Id", "Type", "Description");
-                    for (String sourceName : vault.getSourceNames()) {
-                        source = vault.getSource(sourceName);
-                        for (UUID id : source.getEntryIds()) {
-                            KeyEntry entry = source.getEntry(id);
-                            out.addRowValues(
-                                    sourceName, id, entry.getType(), entry.getDescription());
-                        }
-                    }
-                    out.print(System.out);
-                }
-                break;
-        }
-    }
+public class KeychainUtil {
 
     /**
      * Try to adapt the entry to the given class or interface.

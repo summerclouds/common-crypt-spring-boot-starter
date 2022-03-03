@@ -21,6 +21,7 @@ import java.math.BigInteger;
 import java.util.LinkedList;
 
 import org.summerclouds.common.core.util.IRandom;
+import org.summerclouds.common.crypt.MCrypt;
 
 public class CipherEncodeAsync extends OutputStream {
 

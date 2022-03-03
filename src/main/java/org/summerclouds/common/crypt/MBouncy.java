@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.summerclouds.common.crypt.crypt;
+package org.summerclouds.common.crypt;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -99,14 +99,14 @@ public class MBouncy {
             Security.addProvider(new BouncyCastleProvider());
     }
 
-    protected static final String ALGORITHM_RSA = "RSA";
-    protected static final String PROVIDER = "BC";
-    protected static final String TRANSFORMATION = "RSA/ECB/PKCS1Padding";
-    protected static final String ALGORITHM_AES = "AES";
-    private static final Charset STRING_ENCODING = MString.CHARSET_CHARSET_UTF_8;
+    public static final String ALGORITHM_RSA = "RSA";
+    public static final String PROVIDER = "BC";
+    public static final String TRANSFORMATION = "RSA/ECB/PKCS1Padding";
+    public static final String ALGORITHM_AES = "AES";
+    public static final Charset STRING_ENCODING = MString.CHARSET_CHARSET_UTF_8;
     public static final RSA_KEY_SIZE RSA_KEY_SIZE_DEFAULT = RSA_KEY_SIZE.B1024;
-    private static final String TRANSFORMATION_ECC = "SHA512WITHECDSA";
-    private static final String ALGORITHM_ECC = "ECDSA";
+    public static final String TRANSFORMATION_ECC = "SHA512WITHECDSA";
+    public static final String ALGORITHM_ECC = "ECDSA";
 
     private static LinkedList<KeyPair> keyPool = new LinkedList<>();
     private static long keyPoolUpdate = 0;
