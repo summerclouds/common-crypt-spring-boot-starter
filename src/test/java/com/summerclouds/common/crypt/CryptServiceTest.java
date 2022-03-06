@@ -14,7 +14,7 @@ import org.summerclouds.common.crypt.crypt.pem.PemBlockList;
 import org.summerclouds.common.crypt.crypt.pem.PemBlockModel;
 import org.summerclouds.common.crypt.internal.SpringSummerCloudsCryptAutoConfiguration;
 import org.summerclouds.common.crypt.util.SimplePemProcessContext;
-import org.summerclounds.common.junit.TestCase;
+import org.summerclouds.common.junit.TestCase;
 
 @SpringBootTest(classes = {
 		SpringSummerCloudsCoreAutoConfiguration.class,
