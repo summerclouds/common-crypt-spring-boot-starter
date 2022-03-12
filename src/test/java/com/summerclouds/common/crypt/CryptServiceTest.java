@@ -21,9 +21,9 @@ import org.summerclouds.common.junit.TestCase;
 		SpringSummerCloudsCryptAutoConfiguration.class
 		},
 properties = { 
-		"org.summerclouds.crypt.cipher.enable=true",
-		"org.summerclouds.crypt.signer.enable=true",
-		"org.summerclouds.crypt.keychain.enable=true"
+		"org.summerclouds.crypt.cipher.enabled=true",
+		"org.summerclouds.crypt.signer.enabled=true",
+		"org.summerclouds.crypt.keychain.enabled=true"
 }
 )
 public class CryptServiceTest extends TestCase {

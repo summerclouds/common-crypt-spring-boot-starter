@@ -25,55 +25,55 @@ public class SpringSummerCloudsCryptAutoConfiguration {
 	}
 	
 	@Bean
-	@ConditionalOnProperty(name="org.summerclouds.crypt.cipher.enable",havingValue="true")
+	@ConditionalOnProperty(name="org.summerclouds.crypt.cipher.enabled",havingValue="true")
 	public CipherProvider bouncyAesWithRsaCipher() {
 		return new BouncyAesWithRsaCipher();
 	}
 	
 	@Bean
-	@ConditionalOnProperty(name="org.summerclouds.crypt.cipher.enable",havingValue="true")
+	@ConditionalOnProperty(name="org.summerclouds.crypt.cipher.enabled",havingValue="true")
 	public CipherProvider bouncyRsaCipher() {
 		return new BouncyRsaCipher();
 	}
 
 	@Bean
-	@ConditionalOnProperty(name="org.summerclouds.crypt.cipher.enable",havingValue="true")
+	@ConditionalOnProperty(name="org.summerclouds.crypt.cipher.enabled",havingValue="true")
 	public CipherProvider javaAesCipher() {
 		return new JavaAesCipher();
 	}
 
 	@Bean
-	@ConditionalOnProperty(name="org.summerclouds.crypt.cipher.enable",havingValue="true")
+	@ConditionalOnProperty(name="org.summerclouds.crypt.cipher.enabled",havingValue="true")
 	public CipherProvider javaAesWithRsaCipher() {
 		return new JavaAesWithRsaCipher();
 	}
 
 	@Bean
-	@ConditionalOnProperty(name="org.summerclouds.crypt.cipher.enable",havingValue="true")
+	@ConditionalOnProperty(name="org.summerclouds.crypt.cipher.enabled",havingValue="true")
 	public CipherProvider javaRsaCipher() {
 		return new JavaRsaCipher();
 	}
 
 	@Bean
-	@ConditionalOnProperty(name="org.summerclouds.crypt.signer.enable",havingValue="true")
+	@ConditionalOnProperty(name="org.summerclouds.crypt.signer.enabled",havingValue="true")
 	public SignerProvider bouncyDsaSigner() {
 		return new BouncyDsaSigner();
 	}
 
 	@Bean
-	@ConditionalOnProperty(name="org.summerclouds.crypt.signer.enable",havingValue="true")
+	@ConditionalOnProperty(name="org.summerclouds.crypt.signer.enabled",havingValue="true")
 	public SignerProvider eccSigner() {
 		return new EccSigner();
 	}
 
 	@Bean
-	@ConditionalOnProperty(name="org.summerclouds.crypt.signer.enable",havingValue="true")
+	@ConditionalOnProperty(name="org.summerclouds.crypt.signer.enabled",havingValue="true")
 	public SignerProvider javaDsaSigner() {
 		return new JavaDsaSigner();
 	}
 
 	@Bean
-	@ConditionalOnProperty(name="org.summerclouds.crypt.keychain.enable",havingValue="true")
+	@ConditionalOnProperty(name="org.summerclouds.crypt.keychain.enabled",havingValue="true")
 	public IKeychain keychain() {
 		return new DefaultKeychain();
 	}
