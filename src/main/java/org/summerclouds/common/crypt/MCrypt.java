@@ -32,6 +32,7 @@ import java.util.TreeSet;
 import java.util.UUID;
 
 import org.springframework.util.Assert;
+import org.summerclouds.common.core.cfg.BeanRefMap;
 import org.summerclouds.common.core.error.MException;
 import org.summerclouds.common.core.error.MRuntimeException;
 import org.summerclouds.common.core.error.NotFoundException;
@@ -81,6 +82,8 @@ public class MCrypt {
 
 	public static final String PASSPHRASE = "passphrase";
 	public static final String LENGTH = "length";
+	private static BeanRefMap<CipherProvider> cipherProviders = new BeanRefMap<>(CipherProvider.class);
+	private static BeanRefMap<SignerProvider> signerProviders = new BeanRefMap<>(SignerProvider.class);
 
 	private static Log log = Log.getLog(MCrypt.class);
 
@@ -90,7 +93,7 @@ public class MCrypt {
 		// map to current version - not final
 		if (!name.endsWith("-01")) name = name + "-01";
 
-		Map<String, CipherProvider> map = MSpring.getBeansOfType(CipherProvider.class);
+		Map<String, CipherProvider> map = cipherProviders.beans();
 		for (CipherProvider provider : map.values())
 			if (name.equals(provider.getName()))
 				return provider;
@@ -112,7 +115,7 @@ public class MCrypt {
 		// map to current version - not final
 		if (!name.endsWith("-01")) name = name + "-01";
 		
-		Map<String, SignerProvider> map = MSpring.getBeansOfType(SignerProvider.class);
+		Map<String, SignerProvider> map = signerProviders.beans();
 		for (SignerProvider provider : map.values())
 			if (name.equals(provider.getName()))
 				return provider;
@@ -967,14 +970,14 @@ public class MCrypt {
 	}
 
 	public static Set<String> getCipherList() {
-		Map<String, CipherProvider> map = MSpring.getBeansOfType(CipherProvider.class);
+		Map<String, CipherProvider> map = cipherProviders.beans();
 		Set<String> out = new TreeSet<>();
 		map.values().forEach(i -> out.add(i.getName()));
 		return out;
 	}
 
 	public static Set<String> getSignerList() {
-		Map<String, SignerProvider> map = MSpring.getBeansOfType(SignerProvider.class);
+		Map<String, SignerProvider> map = signerProviders.beans();
 		Set<String> out = new TreeSet<>();
 		map.values().forEach(i -> out.add(i.getName()));
 		return out;
