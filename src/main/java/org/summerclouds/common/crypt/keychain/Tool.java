@@ -53,7 +53,7 @@ public class Tool {
                                     sourceName, id, entry.getType(), entry.getDescription());
                         }
                     }
-                    out.print(System.out);
+                    out.print();
                 }
                 break;
         }
