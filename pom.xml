@@ -5,6 +5,7 @@
 	  <groupId>org.summerclouds.common</groupId>
 	  <artifactId>common-parent</artifactId>
 	  <version>0.0.1-SNAPSHOT</version>
+	  <relativePath>../common-parent</relativePath>
   </parent>
 	<artifactId>common-crypt-spring-boot-starter</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
