@@ -25,17 +25,17 @@ import org.summerclouds.common.core.M;
 import org.summerclouds.common.core.crypt.IKeychain;
 import org.summerclouds.common.core.crypt.KeyEntry;
 import org.summerclouds.common.core.crypt.KeychainSource;
+import org.summerclouds.common.core.lang.SummerApplicationLifecycle;
 import org.summerclouds.common.core.log.MLog;
 import org.summerclouds.common.core.tool.MKeychain;
 import org.summerclouds.common.core.tool.MSpring;
 
-public class DefaultKeychain extends MLog implements IKeychain {
+public class DefaultKeychain extends MLog implements IKeychain, SummerApplicationLifecycle {
 
     private HashMap<String, KeychainSource> sources = new HashMap<>();
     private IKeychain parent;
 
-    
-    @PostConstruct
+
     protected void setup() {
     	Map<String, KeychainSource> map = MSpring.getBeansOfType(KeychainSource.class);
     	for (KeychainSource source : map.values())
@@ -139,4 +139,13 @@ public class DefaultKeychain extends MLog implements IKeychain {
         }
     }
 
+    @Override
+    public void onSummerApplicationStart() throws Exception {
+        setup();
+    }
+
+    @Override
+    public void onSummerApplicationStop() throws Exception {
+
+    }
 }
