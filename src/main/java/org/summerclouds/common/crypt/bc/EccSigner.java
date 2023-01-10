@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2019 Mike Hummel (mh@mhus.de)
+ * Copyright (C) 2022 Mike Hummel (mh@mhus.de)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,7 +47,7 @@ import org.summerclouds.common.crypt.util.CryptUtil;
 
 // http://bouncycastle.org/wiki/display/JA1/Elliptic+Curve+Key+Pair+Generation+and+Key+Factories
 
-//@Component(property = "signer=ECC-BC-01")
+// @Component(property = "signer=ECC-BC-01")
 public class EccSigner extends MLog implements SignerProvider {
 
     private static String NAME = "ECC-BC-01";
@@ -56,10 +56,10 @@ public class EccSigner extends MLog implements SignerProvider {
     private static final String TRANSFORMATION_ECC = "SHA512WITHECDSA";
     private static final String ALGORITHM_ECC = "ECDSA";
 
-//    @Activate
-//    public void doActivate(ComponentContext ctx) {
-//        MBouncy.init();
-//    }
+    //    @Activate
+    //    public void doActivate(ComponentContext ctx) {
+    //        MBouncy.init();
+    //    }
 
     @Override
     public PemBlock sign(PemPriv key, String text, String passphrase) throws MException {

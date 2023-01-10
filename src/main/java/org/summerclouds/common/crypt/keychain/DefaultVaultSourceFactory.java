@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2002 Mike Hummel (mh@mhus.de)
+ * Copyright (C) 2022 Mike Hummel (mh@mhus.de)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,12 +31,14 @@ public class DefaultVaultSourceFactory extends MLog implements KeychainSourceFac
             new CfgFile(
                     MKeychain.class,
                     "file",
-                    MSystem.getFile(MSystem.SCOPE.ETC, "de.mhus.lib.core.vault.FileVaultSource.dat"));
+                    MSystem.getFile(
+                            MSystem.SCOPE.ETC, "de.mhus.lib.core.vault.FileVaultSource.dat"));
     private static CfgFile CFG_DEFAULT_FOLDER =
             new CfgFile(
                     MKeychain.class,
                     "folder",
-                    MSystem.getFile(MSystem.SCOPE.DATA, "de.mhus.lib.core.vault.FolderVaultSource"));
+                    MSystem.getFile(
+                            MSystem.SCOPE.DATA, "de.mhus.lib.core.vault.FolderVaultSource"));
     private static CfgBoolean CFG_EDITABLE =
             new CfgBoolean(KeychainSourceFromPlainProperties.class, "editable", false);
 

@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2019 Mike Hummel (mh@mhus.de)
+ * Copyright (C) 2022 Mike Hummel (mh@mhus.de)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,7 +48,7 @@ import org.summerclouds.common.crypt.util.CryptUtil;
 
 // https://bouncycastle-pgp-cookbook.blogspot.de/2013/01/generating-rsa-keys.html
 
-//@Component(property = "cipher=RSA-BC-01", immediate = true) // Bouncycastle RSA
+// @Component(property = "cipher=RSA-BC-01", immediate = true) // Bouncycastle RSA
 public class BouncyRsaCipher extends MLog implements CipherProvider {
 
     private final String NAME = "RSA-BC-01";
@@ -57,10 +57,10 @@ public class BouncyRsaCipher extends MLog implements CipherProvider {
     private static final String TRANSFORMATION_RSA = "RSA/ECB/PKCS1Padding";
     private static final String ALGORITHM_RSA = "RSA";
 
-//    @Activate
-//    public void doActivate(ComponentContext ctx) {
-//        MBouncy.init();
-//    }
+    //    @Activate
+    //    public void doActivate(ComponentContext ctx) {
+    //        MBouncy.init();
+    //    }
 
     @Override
     public PemBlock encrypt(PemPub key, String content) throws MException {

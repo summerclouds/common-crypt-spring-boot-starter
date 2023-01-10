@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2019 Mike Hummel (mh@mhus.de)
+ * Copyright (C) 2022 Mike Hummel (mh@mhus.de)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,7 +46,7 @@ import org.summerclouds.common.crypt.crypt.pem.PemPriv;
 import org.summerclouds.common.crypt.crypt.pem.PemPub;
 import org.summerclouds.common.crypt.util.CryptUtil;
 
-//@Component(property = "cipher=RSA-JCE-01") // Default RSA - Java Cryptography Extension
+// @Component(property = "cipher=RSA-JCE-01") // Default RSA - Java Cryptography Extension
 public class JavaRsaCipher extends MLog implements CipherProvider {
 
     private final String NAME = "RSA-JCE-01";

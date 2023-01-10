@@ -1,3 +1,18 @@
+/**
+ * Copyright (C) 2022 Mike Hummel (mh@mhus.de)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.summerclouds.common.crypt;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,22 +31,22 @@ import org.summerclouds.common.crypt.internal.SpringSummerCloudsCryptAutoConfigu
 import org.summerclouds.common.crypt.util.SimplePemProcessContext;
 import org.summerclouds.common.junit.TestCase;
 
-@SpringBootTest(classes = {
-		SpringSummerCloudsCoreAutoConfiguration.class,
-		SpringSummerCloudsCryptAutoConfiguration.class
-		},
-properties = { 
-		"org.summerclouds.crypt.cipher.enabled=true",
-		"org.summerclouds.crypt.signer.enabled=true",
-		"org.summerclouds.crypt.keychain.enabled=true"
-}
-)
+@SpringBootTest(
+        classes = {
+            SpringSummerCloudsCoreAutoConfiguration.class,
+            SpringSummerCloudsCryptAutoConfiguration.class
+        },
+        properties = {
+            "org.summerclouds.crypt.cipher.enabled=true",
+            "org.summerclouds.crypt.signer.enabled=true",
+            "org.summerclouds.crypt.keychain.enabled=true"
+        })
 public class CryptServiceTest extends TestCase {
 
-	private final String content =
+    private final String content =
             "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.";
 
-	private final String pubKeySign =
+    private final String pubKeySign =
             "-----BEGIN PUBLIC KEY-----\n"
                     + "PrivateKey: cb0b626c-d0a7-4715-8c08-77a75ee9dc14\n"
                     + "Ident: 881b7fe7-3bc3-4cd0-ab21-ea52e9d04174\n"
@@ -44,7 +59,7 @@ public class CryptServiceTest extends TestCase {
                     + "\n"
                     + "-----END PUBLIC KEY-----\n";
 
-	private final String signature =
+    private final String signature =
             "-----BEGIN SIGNATURE-----\n"
                     + "PrivateKey: cb0b626c-d0a7-4715-8c08-77a75ee9dc14\n"
                     + "PublicKey: 881b7fe7-3bc3-4cd0-ab21-ea52e9d04174\n"
@@ -57,10 +72,10 @@ public class CryptServiceTest extends TestCase {
                     + "\n"
                     + "-----END SIGNATURE-----\n";
 
-	private final String contentBlock =
+    private final String contentBlock =
             new PemBlockModel(PemBlock.BLOCK_CONTENT, content.getBytes()).toString();
-	
-	private final String privKeyCipher =
+
+    private final String privKeyCipher =
             "-----BEGIN PRIVATE KEY-----\n"
                     + "Ident: 5fe815c6-954d-4dbf-b581-4dc6e05dc17c\n"
                     + "Format: PKCS#8\n"
@@ -89,7 +104,7 @@ public class CryptServiceTest extends TestCase {
                     + "\n"
                     + "-----END PRIVATE KEY-----\n";
 
-	private final String cipherBlock =
+    private final String cipherBlock =
             "-----BEGIN CIPHER-----\n"
                     + "PrivateKey: 5fe815c6-954d-4dbf-b581-4dc6e05dc17c\n"
                     + "PublicKey: 12657d2c-b73a-4be0-a5a2-037d835697cb\n"
@@ -114,18 +129,18 @@ public class CryptServiceTest extends TestCase {
 
     @Test
     public void testCiphersAvailable() throws MException {
-    	Collection<String> list = MCrypt.getCipherList();
-    	System.out.println( list );
-    	assertEquals(5, list.size());
+        Collection<String> list = MCrypt.getCipherList();
+        System.out.println(list);
+        assertEquals(5, list.size());
     }
 
     @Test
     public void testSignerAvailable() throws MException {
-    	Collection<String> list = MCrypt.getSignerList();
-    	System.out.println( list );
-    	assertEquals(3, list.size());
+        Collection<String> list = MCrypt.getSignerList();
+        System.out.println(list);
+        assertEquals(3, list.size());
     }
-    
+
     @Test
     public void testEmbeddedCipher() throws MException {
         System.out.println(">>> testEmbeddedCipher");
@@ -135,14 +150,15 @@ public class CryptServiceTest extends TestCase {
         PemBlockList list = new PemBlockList(privKeyCipher + cipherBlock);
         // System.out.println(list);
 
-//        CryptApiImpl api =
-//                new CryptApiImpl() {
-//                    @Override
-//                    public CipherProvider getCipher(String cipher) throws NotFoundException {
-//                        if (cipher.equals("RSA-JCE")) return new JavaRsaCipher();
-//                        throw new NotFoundException(cipher);
-//                    }
-//                };
+        //        CryptApiImpl api =
+        //                new CryptApiImpl() {
+        //                    @Override
+        //                    public CipherProvider getCipher(String cipher) throws
+        // NotFoundException {
+        //                        if (cipher.equals("RSA-JCE")) return new JavaRsaCipher();
+        //                        throw new NotFoundException(cipher);
+        //                    }
+        //                };
         MCrypt.processPemBlocks(context, list);
 
         assertEquals(contentBlock, context.getLastSecret().value());
@@ -164,5 +180,4 @@ public class CryptServiceTest extends TestCase {
 
         MCrypt.processPemBlocks(context, list);
     }
-
 }

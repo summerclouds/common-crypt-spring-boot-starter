@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2019 Mike Hummel (mh@mhus.de)
+ * Copyright (C) 2022 Mike Hummel (mh@mhus.de)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,7 +46,7 @@ import org.summerclouds.common.crypt.util.CryptUtil;
 
 // http://bounce-com.s3.amazonaws.com/b93ede49-06e1-44dc-9caf-8ca7fe04896f/e084edee-e787-42b5-8b18-559fc8a09bad/solving-java-application-errors-in-production.original.pdf?x-amz-security-token=FQoDYXdzEL3%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDKLUAR0ROzxuWIDf9yK3AwJ7WvPa5hYMUZW0crQu1EUfwn9lRqH1Cg8rJrrTJIU6Up00b%2Fnvo%2BeXVpmJT%2BGClrXs9BErDO1Q%2BJM7dqzwZFetvxkilYZ7LIFg8J0nOiA0mhKbkTAKpELzhxqzM3fq7JHbyQTSpgz5mH1Q178DB41UuwiqrVxSkrih5SimDgKt1WhXwTD3nY0kbCOio2WTtTmBbfx%2F6p47uOHJpo%2BMqpeVDzahNisFbyKxYnWTMXiC8JNXptFZEeWkV%2F5zchoXT3kDgZkqF%2FW4pE89%2FJgeP5bUVcH0Wkrnf2D2iHLvlehYTs060%2FC9Q2DwTfhwl6gDiQzrDVlDUbEL80pvOu1k8QQE3aEgmOyyhIa92iIO%2FbfWYG3WX1nuhi%2B9wbpTfgMc%2FHnZ7eq0O%2F7JwVubFYUxvtUizsolPfJ7E%2Bv3Hnj3zeahWnU0XglEOg5QequqWisq3pN6PUKzaAQaAW40r0nxMSi8kxk%2F6e527MRHEYdWyLv2GyYY%2F8vhpA3aINmemq%2B8Ndnu9eVJ6sMCqH7v0kZ5X5XGtb5Xz%2FWfEsz9HqvJBopMSqBYWqGQ0JUHU7G6DoWd86ip6A9vBYAoqsTMxAU%3D&AWSAccessKeyId=ASIAJUR7I5ODZ6DWSGEA&Expires=1486041245&Signature=ZGCLe2NXvRQyv5CTVW43tFQSbFQ%3D
 
-//@Component(property = "signer=DSA-BC-01") // SUNDSA
+// @Component(property = "signer=DSA-BC-01") // SUNDSA
 public class BouncyDsaSigner extends MLog implements SignerProvider {
 
     private static String NAME = "DSA-BC-01";

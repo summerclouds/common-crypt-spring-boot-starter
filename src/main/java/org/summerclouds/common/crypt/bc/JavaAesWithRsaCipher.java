@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2019 Mike Hummel (mh@mhus.de)
+ * Copyright (C) 2022 Mike Hummel (mh@mhus.de)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,7 +47,7 @@ import org.summerclouds.common.crypt.crypt.pem.PemPriv;
 import org.summerclouds.common.crypt.crypt.pem.PemPub;
 import org.summerclouds.common.crypt.util.CryptUtil;
 
-//@Component(
+// @Component(
 //        property = "cipher=AESWITHRSA-JCE-01") // Default AESwithRSA - Java Cryptography Extension
 public class JavaAesWithRsaCipher extends MLog implements CipherProvider {
 
@@ -64,7 +64,8 @@ public class JavaAesWithRsaCipher extends MLog implements CipherProvider {
             // prepare AES key
             int aesLength = key.getInt("AesLength", 128);
             if (aesLength != 128 && aesLength != 256) {
-                throw new MException(RC.USAGE, "AES length {1} not valid, use 128 or 256", aesLength);
+                throw new MException(
+                        RC.USAGE, "AES length {1} not valid, use 128 or 256", aesLength);
             }
             int aesSize = aesLength == 128 ? 16 : 32;
             byte[] aesKey = new byte[aesSize];

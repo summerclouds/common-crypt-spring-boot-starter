@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2002 Mike Hummel (mh@mhus.de)
+ * Copyright (C) 2022 Mike Hummel (mh@mhus.de)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-import javax.annotation.PostConstruct;
 
 import org.summerclouds.common.core.M;
 import org.summerclouds.common.core.crypt.IKeychain;
@@ -35,16 +34,14 @@ public class DefaultKeychain extends MLog implements IKeychain, SummerApplicatio
     private HashMap<String, KeychainSource> sources = new HashMap<>();
     private IKeychain parent;
 
-
     protected void setup() {
-    	Map<String, KeychainSource> map = MSpring.getBeansOfType(KeychainSource.class);
-    	for (KeychainSource source : map.values())
-    		sources.put(source.getName(), source);
-    	checkDefaults();
+        Map<String, KeychainSource> map = MSpring.getBeansOfType(KeychainSource.class);
+        for (KeychainSource source : map.values()) sources.put(source.getName(), source);
+        checkDefaults();
     }
-    
+
     public DefaultKeychain() {
-    	this(null);
+        this(null);
     }
 
     public DefaultKeychain(IKeychain parent) {
@@ -126,7 +123,7 @@ public class DefaultKeychain extends MLog implements IKeychain, SummerApplicatio
         if (parent != null) return parent.getEntry(name);
         return null;
     }
-    
+
     void checkDefaults() {
         KeychainSource def = getSource(MKeychain.SOURCE_DEFAULT);
         if (def == null) {
@@ -145,7 +142,5 @@ public class DefaultKeychain extends MLog implements IKeychain, SummerApplicatio
     }
 
     @Override
-    public void onSummerApplicationStop() throws Exception {
-
-    }
+    public void onSummerApplicationStop() throws Exception {}
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2019 Mike Hummel (mh@mhus.de)
+ * Copyright (C) 2022 Mike Hummel (mh@mhus.de)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -62,18 +62,18 @@ public class PemProcessorTest {
                     + "\n"
                     + "-----END PRIVATE KEY-----\n";
 
-//    private final String signature =
-//            "-----BEGIN SIGNATURE-----\n"
-//                    + "PrivateKey: cb0b626c-d0a7-4715-8c08-77a75ee9dc14\n"
-//                    + "PublicKey: 881b7fe7-3bc3-4cd0-ab21-ea52e9d04174\n"
-//                    + "Method: ECC-BC\n"
-//                    + "Embedded: next\n"
-//                    + "Created: Tue Jun 05 22:06:04 CEST 2018\n"
-//                    + "\n"
-//                    + "MDYCGQCOpzpQuaNQk7p6/rEeKduOt9IzQmneXdsCGQD63pg/AJ\n"
-//                    + "F4C9VzDj44wWvROeqkSbDic/o=\n"
-//                    + "\n"
-//                    + "-----END SIGNATURE-----\n";
+    //    private final String signature =
+    //            "-----BEGIN SIGNATURE-----\n"
+    //                    + "PrivateKey: cb0b626c-d0a7-4715-8c08-77a75ee9dc14\n"
+    //                    + "PublicKey: 881b7fe7-3bc3-4cd0-ab21-ea52e9d04174\n"
+    //                    + "Method: ECC-BC\n"
+    //                    + "Embedded: next\n"
+    //                    + "Created: Tue Jun 05 22:06:04 CEST 2018\n"
+    //                    + "\n"
+    //                    + "MDYCGQCOpzpQuaNQk7p6/rEeKduOt9IzQmneXdsCGQD63pg/AJ\n"
+    //                    + "F4C9VzDj44wWvROeqkSbDic/o=\n"
+    //                    + "\n"
+    //                    + "-----END SIGNATURE-----\n";
 
     private final String contentBlock =
             new PemBlockModel(PemBlock.BLOCK_CONTENT, content.getBytes()).toString();
@@ -124,32 +124,32 @@ public class PemProcessorTest {
                     + "\n"
                     + "-----END PUBLIC KEY-----\n";
 
-//    private final String cipherBlock =
-//            "-----BEGIN CIPHER-----\n"
-//                    + "PrivateKey: 5fe815c6-954d-4dbf-b581-4dc6e05dc17c\n"
-//                    + "PublicKey: 12657d2c-b73a-4be0-a5a2-037d835697cb\n"
-//                    + "Encoding: utf-8\n"
-//                    + "Method: RSA-JCE\n"
-//                    + "Embedded: true\n"
-//                    + "Created: Tue Jun 05 22:27:22 CEST 2018\n"
-//                    + "\n"
-//                    + "Y6pGraTQaDa2CHiSosf3S+rnnUT1QM7q5pScU4e96+IBcKB0s7\n"
-//                    + "r16fedCEQMraYTi1XLcL78shq+OQZ28UAhZUc3ZtAwfdaZ97PB\n"
-//                    + "8bMJuhekhNr57yZ4cj+eLhtq70SzpHUL9ONuP2KNMgjH/sl5tv\n"
-//                    + "6zlCTgIT8FqeUyTNtAzmqG1LqjGpQjn9n4xggHpefAWB5Qzrlu\n"
-//                    + "8boiZcIP+kS0L9Tc2/HXBMoqHf/vHWLI8ynHPJYU/6SoS5Ka30\n"
-//                    + "p0cb9GHwEMZCkb393AcaaUXKd2c9Df9FE+uaUb0/FU99QalmoD\n"
-//                    + "ZAU8Y519BPVTB0gNWcRHrkxy8stAS2Mh8sAGLXcB60Zr0ZujdJ\n"
-//                    + "TkOM9nY/j5S/y1jNTfnL6DAjZ2x6639G4rRcoOUC0uEGmVYhZ7\n"
-//                    + "KW5sJ8LLbDVuATWDWFo4T/ZOLRRtr4s2Q6fPXUV+UuN5GPHJOB\n"
-//                    + "oW5+aO1RIVB9LGHHSQ7xsU888x/oukaWdGyx1EzkrpT94h60It\n"
-//                    + "wNkvX1pcaulf\n"
-//                    + "\n"
-//                    + "-----END CIPHER-----\n";
+    //    private final String cipherBlock =
+    //            "-----BEGIN CIPHER-----\n"
+    //                    + "PrivateKey: 5fe815c6-954d-4dbf-b581-4dc6e05dc17c\n"
+    //                    + "PublicKey: 12657d2c-b73a-4be0-a5a2-037d835697cb\n"
+    //                    + "Encoding: utf-8\n"
+    //                    + "Method: RSA-JCE\n"
+    //                    + "Embedded: true\n"
+    //                    + "Created: Tue Jun 05 22:27:22 CEST 2018\n"
+    //                    + "\n"
+    //                    + "Y6pGraTQaDa2CHiSosf3S+rnnUT1QM7q5pScU4e96+IBcKB0s7\n"
+    //                    + "r16fedCEQMraYTi1XLcL78shq+OQZ28UAhZUc3ZtAwfdaZ97PB\n"
+    //                    + "8bMJuhekhNr57yZ4cj+eLhtq70SzpHUL9ONuP2KNMgjH/sl5tv\n"
+    //                    + "6zlCTgIT8FqeUyTNtAzmqG1LqjGpQjn9n4xggHpefAWB5Qzrlu\n"
+    //                    + "8boiZcIP+kS0L9Tc2/HXBMoqHf/vHWLI8ynHPJYU/6SoS5Ka30\n"
+    //                    + "p0cb9GHwEMZCkb393AcaaUXKd2c9Df9FE+uaUb0/FU99QalmoD\n"
+    //                    + "ZAU8Y519BPVTB0gNWcRHrkxy8stAS2Mh8sAGLXcB60Zr0ZujdJ\n"
+    //                    + "TkOM9nY/j5S/y1jNTfnL6DAjZ2x6639G4rRcoOUC0uEGmVYhZ7\n"
+    //                    + "KW5sJ8LLbDVuATWDWFo4T/ZOLRRtr4s2Q6fPXUV+UuN5GPHJOB\n"
+    //                    + "oW5+aO1RIVB9LGHHSQ7xsU888x/oukaWdGyx1EzkrpT94h60It\n"
+    //                    + "wNkvX1pcaulf\n"
+    //                    + "\n"
+    //                    + "-----END CIPHER-----\n";
 
     @BeforeAll
     public static void setUp() throws Exception {
-//        MApi.get().getLogFactory().setDefaultLevel(LEVEL.TRACE);
+        //        MApi.get().getLogFactory().setDefaultLevel(LEVEL.TRACE);
         MBouncy.init();
     }
 
@@ -184,5 +184,4 @@ public class PemProcessorTest {
         System.out.println(valid);
         assertTrue(valid, "Signer result is not valid");
     }
-
 }
