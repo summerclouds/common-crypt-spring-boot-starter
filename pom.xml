@@ -21,16 +21,16 @@
   <parent>
 	  <groupId>org.summerclouds.common</groupId>
 	  <artifactId>common-parent</artifactId>
-	  <version>0.0.1-SNAPSHOT</version>
+	  <version>0.0.8</version>
 	  <relativePath>../common-parent</relativePath>
   </parent>
 	<artifactId>common-crypt-spring-boot-starter</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.3</version>
 	<name>common-crypt-spring-boot-starter</name>
 	<description>User and permission provider</description>
 
 	<properties>
-		<summerclouds.bom.version>0.1.0-SNAPSHOT</summerclouds.bom.version>
+		<summerclouds.bom.version>0.0.5</summerclouds.bom.version>
 	</properties>
 
 	<dependencyManagement>
