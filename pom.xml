@@ -28,6 +28,22 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>common-crypt-spring-boot-starter</name>
 	<description>User and permission provider</description>
+
+	<properties>
+		<summerclouds.bom.version>0.1.0-SNAPSHOT</summerclouds.bom.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.summerclouds.common</groupId>
+				<artifactId>common-bom</artifactId>
+				<scope>import</scope>
+				<type>pom</type>
+				<version>${summerclouds.bom.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -48,7 +64,6 @@
 		<dependency>
 			<groupId>org.summerclouds.common</groupId>
 			<artifactId>common-junit</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
 			<scope>test</scope>
 		</dependency>
 
