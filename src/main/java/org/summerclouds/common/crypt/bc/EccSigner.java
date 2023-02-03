@@ -171,7 +171,7 @@ public class EccSigner extends MLog implements SignerProvider {
             privBytes = null;
             return new PemKeyPair(xpriv, xpub);
 
-        } catch (Throwable t) {
+        } catch (Exception t) {
             throw new MException(RC.ERROR, t);
         }
     }

@@ -56,7 +56,7 @@ public class JavaAesCipher extends MLog implements CipherProvider {
             CryptUtil.prepareSymmetricCipherOut(key, out, getName(), stringEncoding);
 
             return out;
-        } catch (Throwable t) {
+        } catch (Exception t) {
             throw new MException(RC.ERROR, t);
         }
     }
@@ -74,7 +74,7 @@ public class JavaAesCipher extends MLog implements CipherProvider {
             String stringEncoding = encoded.getString(PemBlock.STRING_ENCODING, "utf-8");
             return new String(enc, stringEncoding);
 
-        } catch (Throwable t) {
+        } catch (Exception t) {
             throw new MException(RC.ERROR, t);
         }
     }

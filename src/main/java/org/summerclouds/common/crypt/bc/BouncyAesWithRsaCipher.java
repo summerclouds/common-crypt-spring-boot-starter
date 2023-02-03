@@ -105,7 +105,7 @@ public class BouncyAesWithRsaCipher extends MLog implements CipherProvider {
             out.setString("AesKey", Base64.getEncoder().encodeToString(aesKeyEncoded));
             return out;
 
-        } catch (Throwable t) {
+        } catch (Exception t) {
             if (t instanceof MException) throw (MException) t;
             throw new MException(RC.ERROR, t);
         }

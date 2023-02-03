@@ -562,7 +562,7 @@ public class MCrypt {
             }
             text = hexString.toString();
             return text;
-        } catch (Throwable e) {
+        } catch (Exception e) {
             log.w(e);
         }
         return null;
@@ -625,7 +625,7 @@ public class MCrypt {
             String realMd5 = MCast.toBinaryString(md.digest());
             // compare
             return realMd5.equals(md5.substring(4));
-        } catch (Throwable e) {
+        } catch (Exception e) {
             log.t(e);
         }
         return false;

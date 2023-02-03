@@ -85,7 +85,7 @@ public class JavaRsaCipher extends MLog implements CipherProvider {
 
             return out;
 
-        } catch (Throwable t) {
+        } catch (Exception t) {
             throw new MException(RC.ERROR, t);
         }
     }
